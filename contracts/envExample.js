@@ -1,0 +1,3 @@
+# testnet
+RPC_URL=
+PRIVATE_KEY=
