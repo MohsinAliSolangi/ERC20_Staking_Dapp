@@ -6,7 +6,7 @@ Welcome to the StakingDappYT project! This repository contains instructions for 
 
 The StakingDappYT is a decentralized application that enables users to stake ERC20 tokens into the platform and earn rewards. The staking process generates reward tokens per second, rewarding users based on their staked amount and duration. 
 
-![Homepage Screenshot](https://staking-rewardon-duraion.vercel.app)
+![Homepage Screenshot](https://github.com/MohsinAliSolangi/StakingRewardDapp/blob/main/client/public/stakingDapp.png)
 
 
 ### Key Tokens
