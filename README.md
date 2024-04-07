@@ -1,13 +1,12 @@
-# StakingDappYT - Smart Contract & DApp Instructions
+# StakingDapp - Smart Contract & DApp Instructions
 
 Welcome to the StakingDappYT project! This repository contains instructions for interacting with the smart contracts and deploying the DApp.
 
 ## Overview of Staking DApp
 
 The StakingDappYT is a decentralized application that enables users to stake ERC20 tokens into the platform and earn rewards. The staking process generates reward tokens per second, rewarding users based on their staked amount and duration. 
-[Stakind Dapp Tutorial (Hindi) ](https://www.youtube.com/@CodeEater21)
 
-![Homepage Screenshot](https://github.com/kshitijofficial/StakingDappYT/raw/main/client/src/assets/homepage.png)
+![Homepage Screenshot](https://staking-rewardon-duraion.vercel.app)
 
 
 ### Key Tokens
@@ -53,10 +52,10 @@ Before using the `getReward()` function, transfer the reward token to the stakin
 
 1. **Copy and Paste ABI**
    - Copy the ABI (Application Binary Interface) of the staking contract and stake token contract.
-   - Paste the ABI files into the `src/ABI` folder.
+   - Paste the ABI files into the `src/contractData` folder.
 
 2. **Update Contract Addresses**
-   - Update the contract addresses of the staking contract and stake token in the `utils/connectWallet.jsx` file.
+   - Update the contract addresses of the staking contract and stake token in the `src/Store.js` file.
 
 ### Running the DApp Locally
 
@@ -75,5 +74,5 @@ Before using the `getReward()` function, transfer the reward token to the stakin
    npm run dev
    ```
 ## Contact
-For any questions or inquiries, feel free to reach out to [Kshitij] at [https://twitter.com/KshitijWeb3].
+For any questions or inquiries, feel free to reach out to [Mohsin Ali Solangi] at [https://linktr.ee/mohsinalisolangi].
 ---
