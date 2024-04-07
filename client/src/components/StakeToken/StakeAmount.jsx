@@ -19,7 +19,7 @@ const StakeAmount = () => {
       toast.error("Please enter a valid positive number.");
       return;
     }
-    const amountToStake = ethers.parseUnits(amount, 18).toString();
+    const amountToStake = ethers.utils.parseUnits(amount, 18).toString();
     try {
       const transaction = await getSignerStakingContrat().stake(amountToStake);
       await toast.promise(transaction.wait(), {

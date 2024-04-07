@@ -2,8 +2,8 @@
 
 :root {
   font-family: "Lexend", sans-serif;
-  --primary-color: #ad00ff;
-  --bg-color: #f2f2f2;
+  --primary-color: #0400ff;
+  --bg-color: #07c4fd;
   --white: #ffffff;
 }
 * {
@@ -56,7 +56,7 @@
   background-color: var(--bg-color);
 }
 .button-section button:hover {
-  color: rgb(47, 47, 47);
+  color: rgb(11, 47, 253);
   background-color: rgb(255, 255, 255);
 }
 .toast {

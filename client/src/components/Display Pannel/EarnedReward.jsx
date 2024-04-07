@@ -17,8 +17,7 @@ const EarnedReward = () => {
         const rewardValueWei = await getProviderStakingContrat().earned(
           mainAccount
         );
-        const rewardValueEth = ethers
-          .formatUnits(rewardValueWei, 18)
+        const rewardValueEth = ethers.utils.formatUnits(rewardValueWei, 18)
           .toString();
         const roundedReward = parseFloat(rewardValueEth).toFixed(2);
         setRewardVal(roundedReward);

@@ -18,7 +18,7 @@ const TokenApproval = () => {
       console.error("Please enter a valid positive number");
       return;
     }
-    const amountToSend = ethers.parseUnits(amount, 18).toString();
+    const amountToSend = ethers.utils.parseUnits(amount, 18).toString();
     try {
       const transaction = await getSignerStakeTokenContrat().approve(
         stakingContractAddress.address,
