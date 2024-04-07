@@ -1,12 +1,16 @@
-import { useContext } from "react"
-import Web3Context from "../../context/Web3Context"
-const ConnectedAccount = ()=>{
-    const {selectedAccount}=useContext(Web3Context);
+import React, { useContext, useEffect } from "react"
+import { Store } from "../../Store/Store";
+import Button from "../Button/Button";
+const ConnectedAccount = ()=> {
+    const { connectWallet, isWalletConnected } = useContext(Store);
+
     return (
         <div>
-          <p className="connected-ac">
-            {selectedAccount ? selectedAccount : "Connect Account"}
-          </p>
+            {isWalletConnected ? 
+          <Button type="button" label="Connected" />
+          :
+          <Button onClick={connectWallet} type="button" label="Connect Wallet" />
+            }
         </div>
       );
 

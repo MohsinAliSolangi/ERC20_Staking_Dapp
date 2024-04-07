@@ -1,15 +1,19 @@
-import { useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import Wallet from "./components/Wallet/Wallet"
 import Navigation from "./components/Navigation/Navigation"
 import DisplayPannel from './components/Display Pannel/DisplayPannel'
 import TokenApproval from './components/StakeToken/TokenApproval'
 import StakeAmount from './components/StakeToken/StakeAmount'
 import WithdrawStakeAmount from './components/Withdraw/Withdraw'
-import { StakingProvider } from './context/StakingContext'
 import './App.css'
+import { Store } from "./Store/Store"
 function App() {
-
+  const {checkIsWalletConnected, mainAccount}= useContext(Store)
   const [displaySection, setDisplaySection] = useState("stake");
+
+  useEffect(()=> {
+    checkIsWalletConnected();
+},[mainAccount])
 
   const handleButtonClick = (section) => {
     setDisplaySection(section);
@@ -17,10 +21,9 @@ function App() {
 
   return (
     <div className="main-section">
-      <Wallet>
+      <Wallet/>
         <Navigation />
-        <StakingProvider>
-          <DisplayPannel />
+              <DisplayPannel />
           <div className="main-content">
             <div className="button-section">
               <button
@@ -48,8 +51,6 @@ function App() {
               </div>
             )}
           </div>
-        </StakingProvider>
-      </Wallet>
     </div>
   )
 }

@@ -1,14 +1,13 @@
+import React from "react"; 
 import { useContext,useRef } from "react";
 import {ethers} from "ethers"
-import Web3Context from "../../context/Web3Context";
-import StakingContext from "../../context/StakingContext";
 import Button from "../Button/Button";
 import { toast } from "react-hot-toast";
 import "./Withdraw.css"
+import { Store } from "../../Store/Store";
 
 const WithdrawStakeAmount =()=>{
- const {stakingContract}=useContext(Web3Context);
- const {isReload,setIsReload}=useContext(StakingContext)
+ const {loader, setloader, getSignerStakingContrat}=useContext(Store)
  const withdrawStakeAmountRef = useRef();
 
 
@@ -23,7 +22,7 @@ const WithdrawStakeAmount =()=>{
    const amountToWithdraw = ethers.parseUnits(amount,18).toString();
    console.log(amountToWithdraw)
    try{
-    const transaction = await stakingContract.withdrawStakedTokens(amountToWithdraw)
+    const transaction = await getSignerStakingContrat().withdrawStakedTokens(amountToWithdraw)
     await toast.promise(transaction.wait(),
     {
       loading: "Transaction is pending...",
@@ -31,10 +30,10 @@ const WithdrawStakeAmount =()=>{
       error: 'Transaction failed 🤯'
     });
     withdrawStakeAmountRef.current.value = "";
-    setIsReload(!isReload);
+    setloader(!loader);
     // const receipt = await transaction.wait();
     // if (receipt.status === 1) {
-    //     setIsReload(!isReload);
+    //     setloader(!loader);
     //     withdrawStakeAmountRef.current.value = "";
     //   } else {
     //       toast.error("Transaction failed. Please try again.")

@@ -1,5 +1,6 @@
+import React from "react"; 
 import ConnectedAccount from "./ConnectedAccount";
-import ConnectedNetwork from "./ConnectedNetwork";
+// import ConnectedNetwork from "./ConnectedNetwork";
 import ClaimReward from "../ClaimReward/ClaimReward";
 import "./Navigation.css"
 const Navigation = ()=>{
@@ -10,7 +11,7 @@ const Navigation = ()=>{
     </div>
     <div className="navbar-acc">
       <ConnectedAccount />
-      <ConnectedNetwork />
+      {/* <ConnectedNetwork /> */}
     </div>
   </header>
   )

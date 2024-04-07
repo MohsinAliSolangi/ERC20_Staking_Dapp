@@ -6,45 +6,60 @@ async function main() {
   so whitelistContract here is a factory for instances of our Whitelist contract.
   */
 
-  const USDT = await ethers.getContractFactory("USDT");
+  const RewardToken = await ethers.getContractFactory("RewardToken");
 
   // here we deploy the contract
-  const deployedTetherTokenContract = await USDT.deploy();
+  const rewardToken = await RewardToken.deploy();
   // 10 is the Maximum number of whitelisted addresses allowed
 
   // Wait for it to finish deploying
-  await deployedTetherTokenContract.deployed();
+  await rewardToken.deployed();
 
   // print the address of the deployed contract
-  console.log(
-    "TetherToken Contract Address:",
-    deployedTetherTokenContract.address
-  );
+  console.log("rewardToken Contract Address:", rewardToken.address);
 
 
 
-  const StakingContract = await ethers.getContractFactory("StakingContract");
+  const StakeToken = await ethers.getContractFactory("StakeToken");
 
   // here we deploy the contract
-  const deployedStakingContract = await StakingContract.deploy(deployedTetherTokenContract.address);
+  const stakeToken = await StakeToken.deploy();
   // 10 is the Maximum number of whitelisted addresses allowed
 
   // Wait for it to finish deploying
-  await deployedStakingContract.deployed();
+  await stakeToken.deployed();
 
   // print the address of the deployed contract
-  console.log("deployedStakingContract Address:", deployedStakingContract.address);
+  console.log("stakeToken Address:", stakeToken.address);
 
 
-  saveFrontendFiles(deployedStakingContract, "StakingContract");
-  saveFrontendFiles(deployedTetherTokenContract, "USDT");
 
+  const Staking = await ethers.getContractFactory("StakingContract");
+
+  // here we deploy the contract
+  const StakingContract = await Staking.deploy(stakeToken.address, rewardToken.address);
+  // 10 is the Maximum number of whitelisted addresses allowed
+
+  // Wait for it to finish deploying
+  await StakingContract.deployed();
+
+  // print the address of the deployed contract
+  console.log("staking Address:", StakingContract.address);
+
+
+
+
+
+
+  saveFrontendFiles(rewardToken, "RewardToken");
+  saveFrontendFiles(stakeToken, "StakeToken");
+  saveFrontendFiles(StakingContract, "StakingContract");
 }
 
 // Call the main function and catch if there is any error
 function saveFrontendFiles(contract, name) {
   const fs = require("fs");
-  const contractsDir = __dirname + "/../../frontend/src/contractsData";
+  const contractsDir = __dirname + "/../../client/src/contractsData";
 
   if (!fs.existsSync(contractsDir)) {
     fs.mkdirSync(contractsDir);
@@ -69,4 +84,6 @@ main()
     process.exit(1);
   });
 
-//0x1218F612e93e384D13627f247e94aBAf892f1997 USDT
+  // rewardToken Contract Address: 0xA64Ec30462486e5cb8a03866d42636aae99e4628
+  // stakeToken Address: 0x03B70a4a0A05b0F67A3E90b484783706cF78c684
+  // staking Address: 0x50356DF7948EE2db07A640905EDbad7F56C53Cb1
