@@ -1,10 +1,10 @@
-# StakingDapp - Smart Contract & DApp Instructions
+# ERC20StakingDapp - Smart Contract & DApp Instructions
 
-Welcome to the StakingDappYT project! This repository contains instructions for interacting with the smart contracts and deploying the DApp.
+Welcome to the ERC20StakingDapp project! This repository contains instructions for interacting with the smart contracts and deploying the DApp.
 
 ## Overview of Staking DApp
 
-The StakingDappYT is a decentralized application that enables users to stake ERC20 tokens into the platform and earn rewards. The staking process generates reward tokens per second, rewarding users based on their staked amount and duration. 
+The ERC20StakingDapp is a decentralized application that enables users to stake ERC20 tokens into the platform and earn rewards. The staking process generates reward tokens per second, rewarding users based on their staked amount and duration. 
 
 ![Homepage Screenshot](https://github.com/MohsinAliSolangi/StakingRewardDapp/blob/main/client/public/stakingDapp.png)
 
